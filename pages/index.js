@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Product from '../components/Product';
+import Nav from '../components/Nav/Nav';
 import prisma from '../lib/prisma';
 
 export default function Home({ products }) {
@@ -16,11 +17,12 @@ export default function Home({ products }) {
         <p className="mb-20 text-xl text-center">
           🔥 Shop from the hottest items in the world 🔥
         </p>
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-items-center  gap-4">
-          {products.map((product) => (
-            <Product product={product} key={product.id} />
-          ))}
+        <div className="flex justify-center">
+          <Nav />
         </div>
+          {/* {products.map((product) => (
+            <Product product={product} key={product.id} />
+          ))} */}
       </main>
 
       <footer></footer>
