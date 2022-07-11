@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Product from '../components/Product';
 import Nav from '../components/Nav/Nav';
 import prisma from '../lib/prisma';
+import Link from 'next/link';
 
 export default function Home({ products }) {
   return (
@@ -13,7 +14,9 @@ export default function Home({ products }) {
       </Head>
 
       <main className="p-10 mx-auto max-w-4xl">
-        <h1 className="text-6xl font-bold mb-4 text-center">Development branch</h1>
+        <Link href="/">
+          <a className="text-6xl font-bold mb-4 text-center">Development branch</a>
+        </Link>
         <p className="mb-20 text-xl text-center">
           🔥 Shop from the hottest items in the world 🔥
         </p>
