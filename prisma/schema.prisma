@@ -9,12 +9,6 @@ datasource db {
     referentialIntegrity = "prisma"
 }
 
-
-generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["referentialActions"] // You won't need this in Prisma 3.X or higher.
-}
-
 model Account {
   id                 String  @id @default(cuid())
   userId             String
@@ -50,6 +44,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  incidents     Incident[]
 }
 
 model VerificationToken {
@@ -60,21 +55,13 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Product {
+model Incident {
     id          Int       @id @default(autoincrement())
-    name        String
-    description String
-    price       Decimal
+    event       String
+    when        Year
+    where       String
     image       String
-    category    Category? @relation(fields: [category_id], references: [id])
-    category_id Int
-
-    @@index([category_id])
+    author      User?    @relation(fields: [authorId], references: [id])
+    authorId    Int?
 }
 
-model Category {
-    id          Int       @id @default(autoincrement())
-    name        String
-    description String
-    products    Product[]
-}
