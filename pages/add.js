@@ -16,7 +16,7 @@ const Add = () => {
       const response = await fetch("/api/addincident", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: form,
+        body: JSON.stringify(form),
       });
       if (response.status === 200) {
         console.log(await response.json());
