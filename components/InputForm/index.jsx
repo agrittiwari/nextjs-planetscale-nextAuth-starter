@@ -1,13 +1,16 @@
 
+import { useSession } from "next-auth/react";
 
-const createForm = () => {
+const Form = () => {
 
+    const {session:data, status} = useSession()
     const onSave = (e) => {
         e.preventDefault()
         console.log(e.target);
     }
-
-    return (
+if (status=== 'unauthenticated') return <span>Sign In to make your Entry</span>
+    if(status==='loading') return <strong>Loading your form...</strong>
+ if (status === 'authenticated') return (
         <form className="w-1/2" onSubmit={onSave}>
             <label className="block my-5 flex justify-between items-center">
                 <span className="block text-sm my-2 font-medium text-slate-700">Background Color</span>
@@ -39,7 +42,7 @@ const createForm = () => {
                 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
                 "/>
             </label>
-            <label className="block my-5 flex justify-between items-center">
+            <label className="block my- 5 flex justify-between items-center">
                 <span className="block text-sm my-2 font-medium text-slate-700">Brand Image</span>
                 <input type="file" name="brandImage" className="block w-medium text-sm text-slate-500
                     file:mr-4 file:py-2 file:px-4
@@ -58,4 +61,4 @@ const createForm = () => {
     );
 };
 
-export default createForm;
+export default Form;

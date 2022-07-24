@@ -19,7 +19,7 @@ const {data:session, status} = useSession()
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="p-10 mx-auto max-w-4xl">
+      <main >
      <Nav/>
 List of  Incidents
 {(status=== 'loading') && <p>loading..</p>}

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
+import Form from '../components/InputForm'
 import Nav from '../components/Nav/Nav'
 
 const add = () => {
@@ -15,6 +16,7 @@ const add = () => {
         <main>
             <Nav/>
         <p>Add YOUR FUNNY iNCIDENT here</p>
+        <Form/>
         </main>
         <footer>
 
