@@ -37,7 +37,7 @@ const getIncident = async (req, res) => {
 const addIncident = async (req, res) => {
   try {
     const { event, yearsAgo, country, author, authorId } = req.body;
-    const data = await prisma.incident.create({
+    const incident = await prisma.incident.create({
       data: {
         event,
         yearsAgo,
@@ -46,7 +46,9 @@ const addIncident = async (req, res) => {
         authorId,
       },
     });
-    return res.status(200).json({ data, msg: "Incident added succesfully" });
+    return res
+      .status(200)
+      .json({ incident, msg: "Incident added succesfully" });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ msg: "Something went wrong" });

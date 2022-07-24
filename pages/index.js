@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import Head from "next/head";
 import Product from "../components/Product";
 import Nav from "../components/Nav/Nav";
@@ -14,15 +15,9 @@ export default function Home({ products }) {
       const response = await fetch("/api/addincident", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
-      }).then((res) => setIncidents(res.json()));
-      if (response.status === 200) {
-        console.log(await response.json());
-      } else {
-        console.log(
-          "There was ana error getting data",
-          await response.json().msg
-        );
-      }
+      });
+      const res = await response.json();
+      setIncidents(res.incidents);
     } catch (error) {
       console.log("There was an error getting data", error);
     }
@@ -30,7 +25,7 @@ export default function Home({ products }) {
 
   useEffect(() => {
     getIncidents();
-  });
+  }, []);
 
   return (
     <div>
@@ -50,6 +45,9 @@ export default function Home({ products }) {
         {status === "unauthenticated" && (
           <strong>Sign up to share your funny Incident</strong>
         )}
+        {incidents?.map((val, idx) => (
+          <li key={idx}>{val.event}</li>
+        ))}
       </main>
 
       <footer></footer>
