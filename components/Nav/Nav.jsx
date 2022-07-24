@@ -4,6 +4,7 @@ import {
     useSession, signIn, signOut
   } from 'next-auth/react'
   
+import Styles from './Nav.module.css';
   
 
 const Nav = () => {
@@ -11,25 +12,25 @@ const Nav = () => {
 const {data:session, status} = useSession()
 
     return (
-        <div className="flex justify-evenly items-center w-1/2">         
+        <div className={Styles.nav}>         
            
-            <Link href='/'>
-                <a className="inline-block bg-gray-200 rounded-full px-11 py-5 text-base font-semibold text-gray-700 mr-2 mb-2">
+            <Link href='/' style={{ textDecoration: 'none' }}>
+                <a className={Styles.link}>
                    Funny Incidents
                 </a>
             </Link>
             <Link href='/add'>
-                <a className="inline-block bg-gray-200 rounded-full px-11 py-5 text-base font-semibold text-gray-700 mr-2 mb-2">
+                <a className={Styles.link}>
                     Share your Incident
                 </a>
             </Link>
-            {!session && <li className="inline-block bg-gray-200 rounded-full px-11 py-5 text-base font-semibold text-gray-700 mr-2 mb-2"> <button onClick={()=> signIn("google")}>Sign in</button>
+            {!session && <li className={Styles.link}> <button className={Styles.linkBtn} onClick={()=> signIn("google")}>Sign in</button>
         
         </li> }
         
         {session && (     
-                    <li className="inline-block bg-gray-200 rounded-full px-11 py-5 text-base font-semibold text-gray-700 mr-2 mb-2">
-                        <button onClick={() => signOut()}>Sign out <i className="fas fa-sign-out-alt"></i></button>
+                    <li className={Styles.link}>
+                        <button className={Styles.linkBtn} onClick={() => signOut()}>Sign out <i className="fas fa-sign-out-alt"></i></button>
                     </li>        
         )}     
       </div>

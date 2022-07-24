@@ -1,0 +1,31 @@
+.nav{
+    background-color: rgb(67, 192, 90);
+    /*max-width: 856px;
+    margin-left: 20%; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.link{
+    list-style: none;
+    padding: 7px;
+    color: white;
+    
+    font-weight: 400;
+    font-size: 20px;
+    margin: 14px;
+    background-color: green;
+    border-radius: 10px;
+    /* border: 1px solid green; */
+    transition: all .5s ease-in-out;
+}
+ 
+
+.link:hover{
+border-bottom: 1px solid white;
+}
+
+.linkBtn{
+    all: unset;
+    cursor: pointer;
+}
