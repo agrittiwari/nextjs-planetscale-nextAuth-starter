@@ -1,63 +1,64 @@
 
 import { useSession } from "next-auth/react";
+import { useState } from "react";
+// import prisma from '../../lib/prisma'
+import Styles from './Form.module.css'
 
 const Form = () => {
 
     const {session:data, status} = useSession()
-    const onSave = (e) => {
+    const [incident, setIncident] = useState({
+      event:'',
+      yearsAgo:'',
+      author: data?.user.name,
+      country:''        
+    })
+    const onSave = async (e) => {
         e.preventDefault()
         console.log(e.target);
+        try {
+            const res = await fetch('api/add',{method:'POST', body: JSON.stringify(incident)})
+
+            let data = await res.json()  
+        if(data){
+            alert('Funny Incident Shared!')
+            setIncident({
+            event:'',
+      yearsAgo:'',
+      author: data?.user.name,
+      country:'' 
+        })}
+        } catch (err) {
+            console.error({msg:err.message})
+        }
+        
+
     }
 if (status=== 'unauthenticated') return <span>Sign In to make your Entry</span>
     if(status==='loading') return <strong>Loading your form...</strong>
  if (status === 'authenticated') return (
-        <form className="w-1/2" onSubmit={onSave}>
-            <label className="block my-5 flex justify-between items-center">
-                <span className="block text-sm my-2 font-medium text-slate-700">Background Color</span>
-                <input type="text" value="" name="backColor" className="mt-1 block w-medium px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                "/>
-            </label>
-            <label className="block my-5 flex justify-between items-center">
-                <span className="block text-sm my-2 font-medium text-slate-700">Border Color</span>
-                <input type="text" value="" name="borderColor" className="mt-1 block w-medium px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                "/>
-            </label>
-            <label className="block my-5 flex justify-between items-center">
-                <span className="block text-sm my-2 font-medium text-slate-700">Heading Text</span>
-                <input type="text" value="" name="heading" className="mt-1 block w-medium px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                "/>
-            </label>
-            <label className="block my-5 flex justify-between items-center">
-                <span className="block text-sm my-2 font-medium text-slate-700">Paragraph Text</span>
-                <input type="text" value="" name="paragraph" className="mt-1 block w-medium px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                "/>
-            </label>
-            <label className="block my-5 flex justify-between items-center">
-                <span className="block text-sm my-2 font-medium text-slate-700">Brand Logo</span>
-                <input type="file" name="brandlogo" className="mt-1 block w-medium px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
-                focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-                "/>
-            </label>
-            <label className="block my- 5 flex justify-between items-center">
-                <span className="block text-sm my-2 font-medium text-slate-700">Brand Image</span>
-                <input type="file" name="brandImage" className="block w-medium text-sm text-slate-500
-                    file:mr-4 file:py-2 file:px-4
-                    file:rounded-medium file:border-0
-                    file:text-sm file:font-semibold
-                    file:bg-violet-50 file:text-violet-700
-                    hover:file:bg-violet-100
-                "/>
-            </label>
-            <div className="flex justify-center">
-                <button className="bg-violet-500 my-4 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 rounded-2xl w-1/4">
-                Save
-                </button>
-            </div>
+    <div className={Styles.formDiv}>
+<form className="w-1/2" onSubmit={onSave}>
+            <label className={Styles.label}>
+              Share your Funny Memory 
+                </label> 
+                <textarea type="text" value={incident.event} name="event"  onChange={(e)=>setIncident({event:e.target.value})}className={Styles.inputClass1} width="48" height="48"></textarea>
+           <div className={Styles.subForm}>
+                <div className={Styles.subFormPart}>
+                    <label className={Styles.label}>When did this funny story happened?</label>
+                    <input className={Styles.inputClass2} type="number" placeholder="like in 2021" value={incident.yearsAgo} name="yearsAgo" onChange={(e)=>setIncident({yearsAgo:e.target.value})}/>
+                </div>
+                <div className={Styles.subFormPart}>
+                    <label className={Styles.label}>Where did you enjoyed it?</label>
+                    <input className={Styles.inputClass2} type="text" placeholder="e.g.- Memphis, America " value={incident.country} name="country" onChange={(e)=> setIncident({country:e.value.target})}/>
+                </div>
+                
+           </div>
+            <input className={Styles.submit} type="submit" value='Submit'/>
+            
         </form>
+    </div>
+        
     );
 };
 
