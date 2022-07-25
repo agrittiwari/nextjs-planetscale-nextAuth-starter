@@ -6,7 +6,7 @@ import Nav from "../components/Nav/Nav";
 
 const Add = () => {
   const { session: data, status } = useSession();
-  const [author, setAuthor] = useState(data?.user);
+  const [authorId, setAuthorId] = useState(session?.user.userId);
   const [event, setEvent] = useState("");
   const [yearsAgo, setYearsAgo] = useState(0);
   const [country, setCountry] = useState("");
@@ -19,7 +19,7 @@ const Add = () => {
 
   const onSave = async (e) => {
     e.preventDefault();
-    const body = { event, yearsAgo, author, country, authorId: "" };
+    const body = { event, yearsAgo,  country, authorId };
     try {
       const res = await fetch("/api/addincident", {
         method: "POST",
@@ -51,7 +51,7 @@ const Add = () => {
         <Nav />
         <p>Add YOUR FUNNY iNCIDENT here</p>
         <Form
-          setAuthor={setAuthor}
+         
           setCountry={setCountry}
           setEvent={setEvent}
           setYearsAgo={setYearsAgo}

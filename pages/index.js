@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 import Head from "next/head";
-import Product from "../components/Product";
+
 import Nav from "../components/Nav/Nav";
 import { useSession } from "next-auth/react";
 // import prisma from '../lib/prisma';
