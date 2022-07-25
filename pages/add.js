@@ -5,7 +5,7 @@ import Form from "../components/InputForm";
 import Nav from "../components/Nav/Nav";
 
 const Add = () => {
-  const { session: data, status } = useSession();
+  const { data: session, status}  = useSession();
   const [authorId, setAuthorId] = useState(session?.user.userId);
   const [event, setEvent] = useState("");
   const [yearsAgo, setYearsAgo] = useState(0);
