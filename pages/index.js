@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Product from '../components/Product';
+
 import Nav from '../components/Nav/Nav';
 import
   {
