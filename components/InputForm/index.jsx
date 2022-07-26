@@ -4,8 +4,7 @@ import { useState } from "react";
 import Styles from "./Form.module.css";
 
 const Form = ({ setCountry, setEvent, setYearsAgo, onSave }) => {
-  const { session: data, status } = useSession();
-
+  const { data: session, status } = useSession();
   if (status === "unauthenticated")
     return <span>Sign In to make your Entry</span>;
   if (status === "loading") return <strong>Loading your form...</strong>;
@@ -44,7 +43,6 @@ const Form = ({ setCountry, setEvent, setYearsAgo, onSave }) => {
                 placeholder='e.g.- Memphis, America '
                 //   value={incident.country}
                 name='country'
-                onChange={(e) => setCountry(e.target.value)}
               />
             </div>
           </div>

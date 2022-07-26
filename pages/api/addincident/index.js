@@ -36,16 +36,16 @@ const getIncident = async (req, res) => {
 //--------ADD DATA TO TH DB OF INCIDENTS DETAILS--------//
 const addIncident = async (req, res) => {
   try {
-    const { event, yearsAgo, country, author, authorId } = req.body;
+    const { event, yearsAgo, country, authorId } = req.body;
     const incident = await prisma.incident.create({
       data: {
         event,
         yearsAgo,
         country,
-        author,
         authorId,
       },
     });
+    console.log(incident);
     return res
       .status(200)
       .json({ incident, msg: "Incident added succesfully" });
