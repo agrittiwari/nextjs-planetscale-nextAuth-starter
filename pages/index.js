@@ -39,23 +39,28 @@ export default function Home({ products }) {
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
-      <main>
+      <div className='app-container'>
         <Nav />
-       <div>List of Incidents</div> 
-        {status === "loading" && <div><p>loading..</p></div>}
-        {status === "unauthenticated" && (
-          <div><strong >Sign up to share your funny Incident</strong></div>
-        )}
-        <div className="list">
-           {incidents?.map((val, idx) => (
-          <Card key={idx} val={val} />
-        ))}
-        </div>
-       
-      </main>
-
-      <footer><Footer/></footer>
+        <main className='xl:container xl:mx-auto p-4'>
+          <div>List of Incidents</div>
+          {status === "loading" && (
+            <div>
+              <p>loading..</p>
+            </div>
+          )}
+          {status === "unauthenticated" && (
+            <div>
+              <strong>Sign up to share your funny Incident</strong>
+            </div>
+          )}
+          <div className='list'>
+            {incidents?.map((val, idx) => (
+              <Card key={idx} val={val} />
+            ))}
+          </div>
+          <Footer />
+        </main>
+      </div>
     </div>
   );
 }
