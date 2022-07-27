@@ -10,9 +10,22 @@ import { useEffect, useState } from "react";
 export default function Home({ products }) {
   const { data: session, status } = useSession();
   const [incidents, setIncidents] = useState([]);
+  const getIncidentsById = async () => {
+    try {
+      const response = await fetch(`/api/addincident/${session?.user.id}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+      const res = await response.json();
+      console.log(res);
+      // setIncidents(res.incidents);
+    } catch (error) {
+      console.log("There was an error getting data", error);
+    }
+  };
   const getIncidents = async () => {
     try {
-      const response = await fetch("/api/addincident", {
+      const response = await fetch(`/api/addincident`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -25,7 +38,8 @@ export default function Home({ products }) {
 
   useEffect(() => {
     getIncidents();
-  }, []);
+    getIncidentsById();
+  }, [session]);
 
   return (
     <div>
