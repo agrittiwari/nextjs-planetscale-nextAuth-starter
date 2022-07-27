@@ -6,6 +6,8 @@ import { useSession } from "next-auth/react";
 // import prisma from '../lib/prisma';
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
+import Card from "../components/Card";
 
 export default function Home({ products }) {
   const { data: session, status } = useSession();
@@ -54,17 +56,20 @@ export default function Home({ products }) {
 
       <main>
         <Nav />
-        List of Incidents
-        {status === "loading" && <p>loading..</p>}
+       <div>List of Incidents</div> 
+        {status === "loading" && <div><p>loading..</p></div>}
         {status === "unauthenticated" && (
-          <strong>Sign up to share your funny Incident</strong>
+          <div><strong >Sign up to share your funny Incident</strong></div>
         )}
-        {incidents?.map((val, idx) => (
-          <li key={idx}>{val.event}</li>
+        <div className="list">
+           {incidents?.map((val, idx) => (
+          <Card key={idx} val={val} />
         ))}
+        </div>
+       
       </main>
 
-      <footer></footer>
+      <footer><Footer/></footer>
     </div>
   );
 }

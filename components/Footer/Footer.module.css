@@ -1,0 +1,75 @@
+.footerMain{
+    background-color:  rgb(67, 192, 90);;
+
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
+
+}
+
+.mainDiv{
+    display: flex;
+flex-direction: row;
+    margin: 0 100px;
+    max-width: 80%;
+    justify-content: space-around;
+}
+.div1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.div1 > li {
+    list-style: none;
+    margin: 10px;
+}
+
+.div2{
+    justify-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.div2 > li {
+    list-style: none;
+    margin: 10px;
+}
+.tab{
+    
+    text-decoration: none;
+    padding: 7px;
+    color: white;
+    
+    font-weight: 400;
+    font-size: 16px;
+    margin: 14px;
+    background-color: green;
+}
+
+@media screen and (max-width: 480px) {
+    .tab{
+padding: 2px;
+margin: 4px;
+font-size: 10px;
+    }
+    .mainDiv{
+        display: flex;
+    flex-direction: row;
+        margin: 0 10px;
+        max-width: 90%;
+        justify-content: space-around;
+    }
+
+    .div1 > li {
+        list-style: none;
+        margin: 3px;
+    }
+    
+  
+    
+    .div2 > li {
+        list-style: none;
+        margin: 3px;
+    }
+}

@@ -1,6 +1,7 @@
 import { useSession } from "next-auth/react";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 import Form from "../components/InputForm";
 import Nav from "../components/Nav/Nav";
 
@@ -58,7 +59,7 @@ const Add = () => {
           onSave={onSave}
         />
       </main>
-      <footer></footer>
+      <footer><Footer/></footer>
     </div>
   );
 };
