@@ -13,6 +13,7 @@ const {data:session, status} = useSession()
 
     return (
         <div className={Styles.nav}>         
+        <div className={Styles.navDiv}>         
            
             <Link href='/' style={{ textDecoration: 'none' }}>
                 <a className={Styles.link}>
@@ -32,7 +33,8 @@ const {data:session, status} = useSession()
                     <li className={Styles.link}>
                         <button className={Styles.linkBtn} onClick={() => signOut()}>Sign out <i className="fas fa-sign-out-alt"></i></button>
                     </li>        
-        )}     
+        )}   
+        </div>  
       </div>
     )
 };
