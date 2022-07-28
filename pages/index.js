@@ -40,7 +40,7 @@ export default function Home({ products }) {
 
   useEffect(() => {
     getIncidents();
-    getIncidentsById();
+    // getIncidentsById();
   }, [session]);
 
   return (

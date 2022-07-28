@@ -10,7 +10,7 @@ const Add = () => {
   const [authorId, setAuthorId] = useState(session?.user.id);
   // const [author, setAuthor] = useState();
   const [event, setEvent] = useState("");
-  const [yearsAgo, setYearsAgo] = useState(0);
+  const [yearsAgo, setYearsAgo] = useState(2022);
   const [country, setCountry] = useState("");
 
   const resetToDefault = () => {
@@ -49,17 +49,22 @@ const Add = () => {
         <meta name='description' content='Add your funny moment' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
+      <div className='app-container'>
         <Nav />
-        <p>Add YOUR FUNNY iNCIDENT here</p>
-        <Form
-          setCountry={setCountry}
-          setEvent={setEvent}
-          setYearsAgo={setYearsAgo}
-          onSave={onSave}
-        />
-      </main>
-      <footer><Footer/></footer>
+        <main className='px-4 h-[85vh]'>
+          <div className='min-h-[71vh]'>
+            <p>Add YOUR FUNNY iNCIDENT here</p>
+            <Form
+              setCountry={setCountry}
+              setEvent={setEvent}
+              yearsAgo={yearsAgo}
+              setYearsAgo={setYearsAgo}
+              onSave={onSave}
+            />
+          </div>
+          <Footer />
+        </main>
+      </div>
     </div>
   );
 };
