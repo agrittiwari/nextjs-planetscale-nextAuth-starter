@@ -1,17 +1,8 @@
 .nav{
-    background-color: rgb(67, 192, 90);
-    position: fixed;
-    
-    width: 100%;
-    top:0;
-    left: 0;
-   
-    min-height: max-content;
+    background-color: #43c05a;
 }
 .navDiv{
-max-width: 80%;
   display: flex;
-  margin: 0 100px;
   justify-content: space-around;
     max-height: max-content;
 }

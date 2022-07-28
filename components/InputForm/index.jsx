@@ -3,7 +3,7 @@ import { useState } from "react";
 // import prisma from '../../lib/prisma'
 import Styles from "./Form.module.css";
 
-const Form = ({ setCountry, setEvent, setYearsAgo, onSave }) => {
+const Form = ({ setCountry, yearsAgo, setEvent, setYearsAgo, onSave }) => {
   const { data: session, status } = useSession();
   if (status === "unauthenticated")
     return <span>Sign In to make your Entry</span>;
@@ -15,6 +15,7 @@ const Form = ({ setCountry, setEvent, setYearsAgo, onSave }) => {
           <label className={Styles.label}>Share your Funny Memory</label>
           <textarea
             type='text'
+            placeholder='Incidents ......'
             //   value={incident.event}
             name='event'
             onChange={(e) => setEvent(e.target.value)}
@@ -30,6 +31,10 @@ const Form = ({ setCountry, setEvent, setYearsAgo, onSave }) => {
               <input
                 className={Styles.inputClass2}
                 type='number'
+                min='1900'
+                max='2099'
+                step='1'
+                value={yearsAgo}
                 placeholder='like in 2021'
                 name='yearsAgo'
                 onChange={(e) => setYearsAgo(JSON.parse(e.target.value))}

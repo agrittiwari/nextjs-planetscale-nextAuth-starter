@@ -23,7 +23,11 @@ export default async function handler(req, res) {
 //-------GET THE INCIDENTS DATA FROM DB-------//
 const getIncident = async (req, res) => {
   try {
-    const incidents = await prisma.incident.findMany({});
+    const incidents = await prisma.incident.findMany({
+      include: {
+        user: true,
+      },
+    });
     return res
       .status(200)
       .json({ incidents, success: "Successfully get the data" });
@@ -45,7 +49,6 @@ const addIncident = async (req, res) => {
         authorId,
       },
     });
-    console.log(incident);
     return res
       .status(200)
       .json({ incident, msg: "Incident added succesfully" });

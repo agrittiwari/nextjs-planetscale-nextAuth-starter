@@ -1,14 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body{
     background-color: rgb(174, 223, 100);
-    margin-top: 0;
-    margin-left:0 ;
-margin-right: 10%;
-max-width: 80%;
+    margin: auto;
+   max-width: 80%;
+   overflow-y: auto;
+      overflow-x: hidden;
 }
- main{
+ /* main{
     display: flex; 
- }
+ } */
  .list{
     display: flex;
     flex-direction: column;
+ }
+
+ .app-container {
+   
+   height: 100vh;
  }

@@ -12,9 +12,22 @@ import Card from "../components/Card";
 export default function Home({ products }) {
   const { data: session, status } = useSession();
   const [incidents, setIncidents] = useState([]);
+  const getIncidentsById = async () => {
+    try {
+      const response = await fetch(`/api/addincident/${session?.user.id}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+      const res = await response.json();
+      console.log(res);
+      // setIncidents(res.incidents);
+    } catch (error) {
+      console.log("There was an error getting data", error);
+    }
+  };
   const getIncidents = async () => {
     try {
-      const response = await fetch("/api/addincident", {
+      const response = await fetch(`/api/addincident`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
@@ -27,7 +40,8 @@ export default function Home({ products }) {
 
   useEffect(() => {
     getIncidents();
-  }, []);
+    // getIncidentsById();
+  }, [session]);
 
   return (
     <div>
@@ -39,23 +53,30 @@ export default function Home({ products }) {
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-
-      <main>
+      <div className='app-container'>
         <Nav />
-       <div>List of Incidents</div> 
-        {status === "loading" && <div><p>loading..</p></div>}
-        {status === "unauthenticated" && (
-          <div><strong >Sign up to share your funny Incident</strong></div>
-        )}
-        <div className="list">
-           {incidents?.map((val, idx) => (
-          <Card key={idx} val={val} />
-        ))}
-        </div>
-       
-      </main>
-
-      <footer><Footer/></footer>
+        <main className='px-4 h-[85vh]'>
+          <div className='min-h-[71vh]'>
+            List of Incidents
+            {status === "loading" && (
+              <div>
+                <p>loading..</p>
+              </div>
+            )}
+            {status === "unauthenticated" && (
+              <div>
+                <strong>Sign up to share your funny Incident</strong>
+              </div>
+            )}
+            <div className='p-4'>
+              {incidents?.map((val, idx) => (
+                <Card key={idx} val={val} />
+              ))}
+            </div>
+          </div>
+          <Footer />
+        </main>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 .footerMain{
-    background-color:  rgb(67, 192, 90);;
+    background-color:  #43c05a;
 
 position: fixed;
 left: 0;
@@ -11,8 +11,7 @@ width: 100%;
 .mainDiv{
     display: flex;
 flex-direction: row;
-    margin: 0 100px;
-    max-width: 80%;
+    margin-top: 2vh;
     justify-content: space-around;
 }
 .div1{
