@@ -41,22 +41,24 @@ export default function Home({ products }) {
       </Head>
       <div className='app-container'>
         <Nav />
-        <main className='xl:container xl:mx-auto p-4'>
-          <div>List of Incidents</div>
-          {status === "loading" && (
-            <div>
-              <p>loading..</p>
+        <main className='px-4 h-[85vh]'>
+          <div className='min-h-[71vh]'>
+            List of Incidents
+            {status === "loading" && (
+              <div>
+                <p>loading..</p>
+              </div>
+            )}
+            {status === "unauthenticated" && (
+              <div>
+                <strong>Sign up to share your funny Incident</strong>
+              </div>
+            )}
+            <div className='p-4'>
+              {incidents?.map((val, idx) => (
+                <Card key={idx} val={val} />
+              ))}
             </div>
-          )}
-          {status === "unauthenticated" && (
-            <div>
-              <strong>Sign up to share your funny Incident</strong>
-            </div>
-          )}
-          <div className='list'>
-            {incidents?.map((val, idx) => (
-              <Card key={idx} val={val} />
-            ))}
           </div>
           <Footer />
         </main>
