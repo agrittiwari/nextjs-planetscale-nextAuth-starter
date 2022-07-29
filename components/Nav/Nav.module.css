@@ -1,12 +1,19 @@
 .nav{
     background-color: #43c05a;
+   
+    width: 100%;
+    top:0;
+    left: 0;
+right: 0;
+    margin-right: 0;
 }
 .navDiv{
+max-width: 80%;
   display: flex;
+  margin: 0 100px;
   justify-content: space-around;
     max-height: max-content;
-}
-.link{
+}.link{
     list-style: none;
     padding: 7px;
     color: white;
@@ -31,4 +38,27 @@ border-bottom: 1px solid white;
 }
 
 @media screen and (max-width: 480px) {
+    .link{
+        list-style: none;
+        padding: 3px;
+        width: 45%;
+        text-align: center;
+justify-items: center;
+        color: white;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 14px;
+        margin: 7px;
+        background-color: green;
+        border-radius: 10px;
+        /* border: 1px solid green; */
+        transition: all .5s ease-in-out;
+    }
+    .navDiv{
+        max-width: 80%;
+          display: flex;
+          margin: 0 20px;
+          justify-content: space-around;
+            max-height: max-content;
+        }
 }

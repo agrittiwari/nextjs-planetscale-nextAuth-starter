@@ -54,9 +54,10 @@ export default function Home({ products }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='app-container'>
-        <Nav />
-        <main className='px-4 h-[85vh]'>
-          <div className='min-h-[71vh]'>
+       
+        <main >
+          <Nav />
+          <div className="list">
             List of Incidents
             {status === "loading" && (
               <div>
@@ -68,7 +69,7 @@ export default function Home({ products }) {
                 <strong>Sign up to share your funny Incident</strong>
               </div>
             )}
-            <div className='p-4'>
+            <div className='list'>
               {incidents?.map((val, idx) => (
                 <Card key={idx} val={val} />
               ))}

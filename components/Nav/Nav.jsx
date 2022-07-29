@@ -8,8 +8,8 @@ const Nav = () => {
   const { data: session, status } = useSession();
 
   return (
-    <nav className={Styles.nav}>
-      <div className={Styles.navDiv}>
+    <div className={Styles.nav}>
+      <nav className={Styles.navDiv}>
         <Link href='/' style={{ textDecoration: "none" }}>
           <a className={Styles.link}>Funny Incidents</a>
         </Link>
@@ -32,8 +32,8 @@ const Nav = () => {
             </button>
           </li>
         )}
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 };
 

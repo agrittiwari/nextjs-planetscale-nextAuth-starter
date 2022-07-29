@@ -50,8 +50,9 @@ const Add = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='app-container'>
-        <Nav />
-        <main className='px-4 h-[85vh]'>
+       
+        <main >
+           <Nav />
           <div className='min-h-[71vh]'>
             <p>Add YOUR FUNNY iNCIDENT here</p>
             <Form

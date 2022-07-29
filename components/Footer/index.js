@@ -4,26 +4,26 @@ import Styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <nav className='footer bg-[#43c05a]'>
+    <nav className={Styles.footerMain}>
       <div className={Styles.mainDiv}>
         <div className={Styles.div1}>
           <li>Made with 💚</li>
           <li>
-            <Link href='#'>
+            <Link href='https://www.instagram.com/akshays133'>
               <a
                 className={Styles.tab}
-                href='https://www.instagram.com/akshays133'
+               
               >
                 Akshay Sharma
               </a>
-            </Link>{" "}
-            &{" "}
-            <Link href='#'>
+            </Link>
+            &
+            <Link   href='https://www.twitter.com/agrit_tiwari'>
               <a
-                href='https://www.twitter.com/agrit_tiwari'
+              
                 className={Styles.tab}
               >
-                Agrit Twari
+                Agrit Tiwari
               </a>
             </Link>
           </li>
