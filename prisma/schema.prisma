@@ -57,7 +57,7 @@ model VerificationToken {
 
 model Incident {
   id        Int      @id @default(autoincrement())
-  event     String
+  event     String   @db.Text()
   createdAt DateTime @default(now())
   yearsAgo  Int
   country   String

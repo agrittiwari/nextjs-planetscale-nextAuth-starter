@@ -21,7 +21,8 @@ const Card = ({ val }) => {
         <p className={Style.name}>{user ? user.name : 'A Happy User'}</p>
         <p className={Style.country}>{country}</p>
       </div>
-      <div className={Style.div2part3}><p className={Style.time}>This Story is from {yearsAgo}</p></div>
+      <div className={Style.div2part3}>
+        <p className={Style.time}>YEAR:  {yearsAgo}</p></div>
       </div>  <div className={Style.div1}>
        
         <p className={Style.event}>{event}</p>

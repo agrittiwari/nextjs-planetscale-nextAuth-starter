@@ -23,21 +23,30 @@ text-align: justify;
 justify-content: baseline;
     height: 100%;
     word-break: break-all;
-    padding: 10px     5px;
+    margin: 0px;
+    padding: 20px     5px;
    
 }
 .time{
     background-color: cadetblue;
-    padding: 8px;
+    padding: 2px;
     margin: 0;
+    font-size: 16px;
+    color: white;
     border-radius: 10px;
-    border-bottom-left-radius:0 ;
-    border-bottom-right-radius: 0;
+
+}
+.div2part3{
+    background-color: rgb(95, 160, 95);
+    text-align: end;
+    padding-top: 2%;
+    justify-content: flex-end;
 }
 .div2{
     display: flex;
     flex-direction: row;
     padding: 0;
+    /* justify-content: space-between; */
 }
 
 .userImg{
@@ -48,8 +57,8 @@ justify-content: baseline;
     
 }
 .div2part1{
-    width: 20%;
-    padding: 4px;
+    width: 15%;
+    padding: 3px;
     padding-right: 0px;
     background-color: rgb(154, 154, 81);
 
@@ -57,22 +66,25 @@ justify-content: baseline;
 
 .div2part2{
     display: flex;
-    padding-top: 4px;
+   
     flex-direction: column;
-    background-color: rgb(254, 254, 252);
-
+    background-color: rgb(127, 127, 125);
+ width: 60%;
 }
 
 .name{
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
+    color: white;
+    background-color: green;
 }
 .country{
-    background-color:brown ;
-font-size: 13px;
+    color: white;
+    background-color: green;
+font-size: 15px;
 font-weight: 300;
 }
 .div2part2 > p{
-    padding-top: 6px ;
+    padding-top: 12px ;
     margin: 0;
 }
