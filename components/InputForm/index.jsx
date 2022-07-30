@@ -49,7 +49,7 @@ const Form = ({
               />
             </div>
             <div className={Styles.subFormPart}>
-              <label className={Styles.label}>Where did you enjoyed it?</label>
+              <label className={Styles.label}>Where are you from?</label>
               <input
                 className={Styles.inputClass2}
                 type='text'

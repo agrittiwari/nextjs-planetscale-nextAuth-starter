@@ -3,7 +3,8 @@ import Style from "./Card.module.css";
 const Card = ({ val }) => {
   const { event, yearsAgo,country, user } = val;
   return (
-    <div className={Style.mainDiv}>
+    <div className={Style.wrap}>
+      <div className={Style.mainDiv}>
     
       <div className={Style.div2}>
       <div className={Style.div2part1}>
@@ -14,7 +15,7 @@ const Card = ({ val }) => {
               ? user.image
               : "https://mdbootstrap.com/wp-content/uploads/2020/06/vertical.jpg"
           }
-          alt=''
+          alt='user Image'
         />
       </div>
       <div className={Style.div2part2}>
@@ -29,6 +30,8 @@ const Card = ({ val }) => {
              
       </div>
     </div>
+    </div>
+    
   );
 };
 

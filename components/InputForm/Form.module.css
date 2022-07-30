@@ -1,11 +1,22 @@
 .formDiv{
-    background-color: aliceblue;
+    background-color: #222;
+    border-width: 4px;
+    border-style: solid;
+    border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+     padding :3px;
     padding: 3%;
+    width: 80%;
+    max-height: 100vh;
+    min-height: max-content;
+    margin: 6% 8%;
 }
 
 .label{
     display:block;
-    margin: 8px;
+    margin: 12px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+    color: white;
 }
 
 .inputClass1{
@@ -13,12 +24,24 @@
     margin: 8px;
     width: 80% ;
     height: 120px;
-    padding: 4px;
-    font-size: 22px;
-    font-style: ITALIC;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px;
+    border-radius: 17px;
+    background-color: whitesmoke;
+    font-size: 15px;
+    
+    font-family: 'Times New Roman', Times, serif;
 }
-
+.inputClass2{
+    display: block;
+   
+   
+    padding: 8px;
+    border-radius: 17px;
+    background-color: whitesmoke;
+    font-size: 15px;
+    
+    font-family: 'Times New Roman', Times, serif;
+}
 
 .subForm{
     display: flex;
@@ -41,8 +64,50 @@
     margin-inline: 40%;
     width: 20%;
     padding: 5px;
+    margin-top: 2%;
     color: white;
     background-color: green;
     border-radius: 20px;
     font-size: 20px;
+}
+
+@media screen and (max-width:486px) {
+    
+    .subForm{
+        display:flex;
+        flex-direction: column;
+    
+    }
+    .label{
+        display:block;
+        margin: 10px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 18px;
+        color: white;
+    }
+    .submit{
+        display: block;
+        justify-self: flex-start;
+        margin-inline: 40%;
+        width: 20%;
+        padding: 7px;
+        color: white;
+        background-color: green;
+        border-radius: 13px;
+        font-size: 15px;
+    }
+    
+    .formDiv{
+        background-color: #222;
+        border-width: 4px;
+        border-style: solid;
+        border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+         padding :3px;
+        padding: 3%;
+        width: 80%;
+        max-height: 100vh;
+        min-height: max-content;
+        margin: 20% 8%;
+    }
+    
 }
