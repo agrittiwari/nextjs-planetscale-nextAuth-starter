@@ -13,23 +13,37 @@ max-width: 80%;
   margin: 0 100px;
   justify-content: space-around;
     max-height: max-content;
-}.link{
+}
+.link{
     list-style: none;
-    padding: 7px;
+    padding: 4px 3px;
+    text-align: center;
     color: white;
     text-decoration: none;
     font-weight: 400;
     font-size: 20px;
     margin: 14px;
-    background-color: green;
-    border-radius: 10px;
+   
+
     /* border: 1px solid green; */
-    transition: all .5s ease-in-out;
+    transition: all .05s ease-in-out;
 }
  
+.mainLink{
+    
+   
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 28px;
+    margin: 14px;
+  color: rgb(0, 96, 128);
+    
+    /* border: 1px solid green; */
+    transition: all .5s ease-in;
 
+ }
 .link:hover{
-border-bottom: 1px solid white;
+border-bottom: 4px solid rgb(0, 96, 128);;
 }
 
 .linkBtn{
@@ -49,7 +63,7 @@ justify-items: center;
         font-weight: 300;
         font-size: 14px;
         margin: 7px;
-        background-color: green;
+       
         border-radius: 10px;
         /* border: 1px solid green; */
         transition: all .5s ease-in-out;

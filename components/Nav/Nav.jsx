@@ -11,10 +11,10 @@ const Nav = () => {
     <div className={Styles.nav}>
       <nav className={Styles.navDiv}>
         <Link href='/' style={{ textDecoration: "none" }}>
-          <a className={Styles.link}>Funny Incidents</a>
+          <a className={Styles.mainLink}>Funny Incidents</a>
         </Link>
         <Link href='/add'>
-          <a className={Styles.link}>Share your Incident</a>
+          <a className={Styles.link}>Add</a>
         </Link>
         {!session && (
           <li className={Styles.link}>

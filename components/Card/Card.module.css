@@ -2,7 +2,7 @@
   
    border-width: 4px;
   border-style: solid;
-  border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+  border-image: linear-gradient(to right, rgb(157, 155, 44), rgb(20, 31, 151)) 1;
    padding :3px;
    margin: 10px 30%;
    max-height:100vh ;
@@ -101,4 +101,55 @@ font-weight: 300;
 .div2part2 > p{
     padding-top: 12px ;
     margin: 0;
+}
+
+@media screen and (max-width:486px) {
+    .wrap{
+         border-width: 4px;
+       border-style: solid;
+       border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+        padding :3px;
+        margin: 10px 8%;
+        max-height:100vh ;
+        min-height: max-content;
+     
+     }
+     .mainDiv{
+         display:block;
+     background-color:#222;
+     
+     border-radius: 10px;
+     padding-bottom: 10px ;
+     }
+     .div2part1{
+        width: 15%;
+        margin-right: 15px;
+        padding: 3px;
+        padding-right: 3px;
+        background-color:#222;
+    }
+    .div2part2{
+        display: flex;
+       
+        flex-direction: column;
+        background-color:#222;
+     width: 45%;
+    }
+    
+    
+     .userImg{
+        border: 1px gray;
+        border-radius: 50%;
+        width: 55px;
+        
+        padding-top: 5px;
+    }
+    .div2{
+        display: flex;
+        flex-direction: row;
+        padding: 3px;
+        /* justify-content: space-between; */
+    }
+    
+     
 }

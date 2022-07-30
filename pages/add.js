@@ -53,7 +53,7 @@ const Add = () => {
         <main>
           <Nav />
           <div className='min-h-[71vh]'>
-            <p>Add YOUR FUNNY iNCIDENT here</p>
+            
             {status === "unauthenticated" && (
               <span>Sign In to make your Entry</span>
             )}

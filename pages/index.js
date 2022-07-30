@@ -65,7 +65,7 @@ export default function Home({ products }) {
         <main>
           <Nav />
           <div >
-            List of Incidents
+          
             {status === "loading" && <div className='loading' />}
             {status === "unauthenticated" && (
               <div>
