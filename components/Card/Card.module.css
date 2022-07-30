@@ -27,7 +27,7 @@ padding-bottom: 10px ;
 }
 .dashDiv{
     height: 1px;
-    width: 75%;
+    width: 85%;
     background-color: rgb(68, 68, 68) ;
     margin-left: 12%;
 }
@@ -75,10 +75,10 @@ color: rgb(232, 227, 227);
     padding-top: 5px;
 }
 .div2part1{
-    width: 15%;
-    margin-right: 5px;
+    width: 10%;
+    margin-left: 35px;
     padding: 3px;
-    padding-right: 0px;
+    justify-content: center;
     background-color:#222;
 }
 
@@ -87,7 +87,7 @@ color: rgb(232, 227, 227);
    
     flex-direction: column;
     background-color:#222;
- width: 60%;
+ width: 73%;
 }
 
 .name{
@@ -119,6 +119,7 @@ font-weight: 300;
         min-height: max-content;
      
      }
+     
      .mainDiv{
          display:block;
      background-color:#222;

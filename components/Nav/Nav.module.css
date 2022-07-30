@@ -22,7 +22,7 @@ max-width: 80%;
     text-decoration: none;
     font-weight: 400;
     font-size: 20px;
-    margin: 14px;
+    margin: 10px;
    
 
     /* border: 1px solid green; */
@@ -63,8 +63,7 @@ justify-items: center;
         font-weight: 300;
         font-size: 14px;
         margin: 7px;
-       
-        border-radius: 10px;
+      
         /* border: 1px solid green; */
         transition: all .5s ease-in-out;
     }
@@ -91,7 +90,6 @@ justify-items: center;
         font-size: 17px;
         
        
-        border-radius: 10px;
         /* border: 1px solid green; */
         transition: all .5s ease-in-out;
     }
