@@ -11,11 +11,24 @@ const Add = () => {
   const [event, setEvent] = useState("");
   const [yearsAgo, setYearsAgo] = useState(2022);
   const [country, setCountry] = useState("");
-
+  const [countries, setCountries] = useState(undefined);
   const resetToDefault = () => {
     setEvent("");
-    setCountry("");
+    setCountry(undefined);
     setYearsAgo(2022);
+  };
+
+  const getCountries = async () => {
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/all", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+      const res = await response.json();
+      setCountries(res);
+    } catch (error) {
+      console.error({ msg: error.message });
+    }
   };
 
   const onSave = async (e) => {
@@ -40,6 +53,7 @@ const Add = () => {
 
   useEffect(() => {
     setAuthorId(session?.user.id);
+    getCountries();
   }, [session]);
 
   return (
@@ -53,7 +67,6 @@ const Add = () => {
         <main>
           <Nav />
           <div className='min-h-[71vh]'>
-            
             {status === "unauthenticated" && (
               <span>Sign In to make your Entry</span>
             )}
@@ -62,6 +75,7 @@ const Add = () => {
               <Form
                 setCountry={setCountry}
                 setEvent={setEvent}
+                countries={countries}
                 yearsAgo={yearsAgo}
                 event={event}
                 country={country}
