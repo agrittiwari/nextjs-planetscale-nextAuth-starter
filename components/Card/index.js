@@ -24,7 +24,8 @@ const Card = ({ val }) => {
       </div>
       <div className={Style.div2part3}>
         <p className={Style.time}>YEAR:  {yearsAgo}</p></div>
-      </div>  <div className={Style.div1}>
+
+      </div><div className={Style.dashDiv}/>  <div className={Style.div1}>
        
         <p className={Style.event}>{event}</p>
              

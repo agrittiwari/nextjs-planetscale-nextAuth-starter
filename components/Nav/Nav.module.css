@@ -76,3 +76,23 @@ justify-items: center;
             max-height: max-content;
         }
 }
+
+@media screen and (min-width: 360px) {
+    .link{
+        list-style: none;
+        padding: 1px;
+        margin-top: 29px;
+        width: 45%;
+        text-align: center;
+justify-items: center;
+        color: white;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 17px;
+        
+       
+        border-radius: 10px;
+        /* border: 1px solid green; */
+        transition: all .5s ease-in-out;
+    }
+}

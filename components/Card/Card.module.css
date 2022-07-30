@@ -2,7 +2,7 @@
   
    border-width: 4px;
   border-style: solid;
-  border-image: linear-gradient(to right, rgb(157, 155, 44), rgb(20, 31, 151)) 1;
+  border-image: linear-gradient(to right, rgb(66, 10, 51), rgb(20, 31, 151)) 1;
    padding :3px;
    margin: 10px 30%;
    max-height:100vh ;
@@ -21,18 +21,23 @@ padding-bottom: 10px ;
    
    padding: 2px;
     background-color:#222;
-    border-top: 1px solid whitesmoke;
+    /* border-top: 1px solid rgb(68, 68, 68); */
     border-width: 60%;
    
 }
-
+.dashDiv{
+    height: 1px;
+    width: 75%;
+    background-color: rgb(68, 68, 68) ;
+    margin-left: 12%;
+}
 .event{
    
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 text-align: justify;
 justify-content: baseline;
 border: none;
-color: whitesmoke;
+color: rgb(232, 227, 227);
     height: 100%;
     line-height: 23px;
     margin: 0px;
@@ -153,3 +158,17 @@ font-weight: 300;
     
      
 }
+@media screen and (min-width:360px) {
+
+    .wrap{
+        border-width: 4px;
+      border-style: solid;
+      border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+       padding :3px;
+       margin: 14px 8%;
+       max-height:100vh ;
+       min-height: max-content;
+       overflow: hidden;
+    
+    }
+    }
