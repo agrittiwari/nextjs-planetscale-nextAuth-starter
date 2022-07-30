@@ -9,6 +9,7 @@ const Add = () => {
   const { data: session, status } = useSession();
   const [authorId, setAuthorId] = useState(session?.user.id);
   const [event, setEvent] = useState("");
+  const [loading, setLoading] = useState(false);
   const [yearsAgo, setYearsAgo] = useState(2022);
   const [country, setCountry] = useState("");
   const [countries, setCountries] = useState(undefined);
@@ -35,6 +36,7 @@ const Add = () => {
     e.preventDefault();
     const body = { event, yearsAgo, country, authorId };
     try {
+      setLoading(true);
       const res = await fetch("/api/addincident", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -43,8 +45,9 @@ const Add = () => {
       console.log(await res.json());
 
       if (res.status === 200) {
-        alert("Funny Incident Shared!");
         resetToDefault();
+        setLoading(false);
+        alert("Funny Incident Shared!");
       }
     } catch (err) {
       console.error({ msg: err.message });
@@ -84,6 +87,7 @@ const Add = () => {
               />
             )}
           </div>
+          {loading && <div className='loading' />}
           <Footer />
         </main>
       </div>

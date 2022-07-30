@@ -3,6 +3,7 @@ import React from "react";
 import Style from "./Card.module.css";
 const Card = ({ val }) => {
   const { event, yearsAgo, country, user } = val;
+  const userName = user.name.toLowerCase();
   const countryName = country.split(",")[0];
   const countrySvg = country.split(",")[1];
   return (
@@ -21,7 +22,11 @@ const Card = ({ val }) => {
             />
           </div>
           <div className={Style.div2part2}>
-            <p className={Style.name}>{user ? user.name : "A Happy User"}</p>
+            <p className={Style.name}>
+              {userName
+                ? userName.replace(/^./, userName[0].toUpperCase())
+                : "A Happy User"}
+            </p>
             <p className={Style.country}>
               <img src={countrySvg} alt={countryName} width={50} height={20} />
               {countryName}
@@ -31,7 +36,7 @@ const Card = ({ val }) => {
             <p className={Style.time}>YEAR: {yearsAgo}</p>
           </div>
         </div>
-        <div className={Style.dashDiv}/>
+        <div className={Style.dashDiv} />
         <div className={Style.div1}>
           <p className={Style.event}>{event}</p>
         </div>

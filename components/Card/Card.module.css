@@ -95,6 +95,7 @@ color: rgb(232, 227, 227);
     font-size: 20px;
     font-weight: 500;
     color: white;
+    text-transform: lowercase;
     background-color:#222;
     
 }
