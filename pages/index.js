@@ -12,6 +12,12 @@ import Card from "../components/Card";
 export default function Home({ products }) {
   const { data: session, status } = useSession();
   const [incidents, setIncidents] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handleLoading = () => {
+    setLoading(!loading);
+  };
+
   const getIncidentsById = async () => {
     try {
       const response = await fetch(`/api/addincident/${session?.user.id}`, {
@@ -27,12 +33,14 @@ export default function Home({ products }) {
   };
   const getIncidents = async () => {
     try {
+      handleLoading();
       const response = await fetch(`/api/addincident`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
       const res = await response.json();
       setIncidents(res.incidents);
+      setLoading(false);
     } catch (error) {
       console.log("There was an error getting data", error);
     }
@@ -54,16 +62,11 @@ export default function Home({ products }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='app-container'>
-       
-        <main >
+        <main>
           <Nav />
-          <div className="list">
+          <div className='list'>
             List of Incidents
-            {status === "loading" && (
-              <div>
-                <p>loading..</p>
-              </div>
-            )}
+            {status === "loading" && <div className='loading' />}
             {status === "unauthenticated" && (
               <div>
                 <strong>Sign up to share your funny Incident</strong>
@@ -75,26 +78,10 @@ export default function Home({ products }) {
               ))}
             </div>
           </div>
+          {loading && <div className='loading' />}
           <Footer />
         </main>
       </div>
     </div>
   );
 }
-
-// export async function getStaticProps(context) {
-//   const data = await prisma.product.findMany({
-//     include: {
-//       category: true,
-//     },
-//   });
-
-//   //convert decimal value to string to pass through as json
-//   const products = data.map((product) => ({
-//     ...product,
-//     price: product.price.toString(),
-//   }));
-//   return {
-//     props: { products },
-//   };
-// }

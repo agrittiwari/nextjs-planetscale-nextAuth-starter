@@ -3,11 +3,19 @@ import { useState } from "react";
 // import prisma from '../../lib/prisma'
 import Styles from "./Form.module.css";
 
-const Form = ({ setCountry, yearsAgo, setEvent, setYearsAgo, onSave }) => {
+const Form = ({
+  setCountry,
+  yearsAgo,
+  country,
+  event,
+  setEvent,
+  setYearsAgo,
+  onSave,
+}) => {
   const { data: session, status } = useSession();
   if (status === "unauthenticated")
     return <span>Sign In to make your Entry</span>;
-  if (status === "loading") return <strong>Loading your form...</strong>;
+  if (status === "loading") return <div className='loading' />;
   if (status === "authenticated")
     return (
       <div className={Styles.formDiv}>
@@ -16,7 +24,7 @@ const Form = ({ setCountry, yearsAgo, setEvent, setYearsAgo, onSave }) => {
           <textarea
             type='text'
             placeholder='Incidents ......'
-            //   value={incident.event}
+            value={event}
             name='event'
             onChange={(e) => setEvent(e.target.value)}
             className={Styles.inputClass1}
@@ -37,7 +45,7 @@ const Form = ({ setCountry, yearsAgo, setEvent, setYearsAgo, onSave }) => {
                 value={yearsAgo}
                 placeholder='like in 2021'
                 name='yearsAgo'
-                onChange={(e) => setYearsAgo(e.target.value)}
+                onChange={(e) => setYearsAgo(parseInt(e.target.value, 10))}
               />
             </div>
             <div className={Styles.subFormPart}>
@@ -46,9 +54,9 @@ const Form = ({ setCountry, yearsAgo, setEvent, setYearsAgo, onSave }) => {
                 className={Styles.inputClass2}
                 type='text'
                 placeholder='e.g.- Memphis, America '
-                //   value={incident.country}
+                value={country}
                 name='country'
-                onChange={(e)=>setCountry(e.target.value)}
+                onChange={(e) => setCountry(e.target.value)}
               />
             </div>
           </div>

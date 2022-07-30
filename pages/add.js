@@ -8,7 +8,6 @@ import Nav from "../components/Nav/Nav";
 const Add = () => {
   const { data: session, status } = useSession();
   const [authorId, setAuthorId] = useState(session?.user.id);
-  // const [author, setAuthor] = useState();
   const [event, setEvent] = useState("");
   const [yearsAgo, setYearsAgo] = useState(2022);
   const [country, setCountry] = useState("");
@@ -16,7 +15,7 @@ const Add = () => {
   const resetToDefault = () => {
     setEvent("");
     setCountry("");
-    setYearsAgo("");
+    setYearsAgo(2022);
   };
 
   const onSave = async (e) => {
@@ -38,9 +37,10 @@ const Add = () => {
       console.error({ msg: err.message });
     }
   };
-  // useEffect(() => {
-  //   onSave();
-  // }, []);
+
+  useEffect(() => {
+    setAuthorId(session?.user.id);
+  }, [session]);
 
   return (
     <div>
@@ -50,18 +50,25 @@ const Add = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='app-container'>
-       
-        <main >
-           <Nav />
+        <main>
+          <Nav />
           <div className='min-h-[71vh]'>
             <p>Add YOUR FUNNY iNCIDENT here</p>
-            <Form
-              setCountry={setCountry}
-              setEvent={setEvent}
-              yearsAgo={yearsAgo}
-              setYearsAgo={setYearsAgo}
-              onSave={onSave}
-            />
+            {status === "unauthenticated" && (
+              <span>Sign In to make your Entry</span>
+            )}
+            {status === "loading" && <div className='loading' />}
+            {status === "authenticated" && (
+              <Form
+                setCountry={setCountry}
+                setEvent={setEvent}
+                yearsAgo={yearsAgo}
+                event={event}
+                country={country}
+                setYearsAgo={setYearsAgo}
+                onSave={onSave}
+              />
+            )}
           </div>
           <Footer />
         </main>
