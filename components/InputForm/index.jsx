@@ -7,6 +7,7 @@ const Form = ({
   setCountry,
   yearsAgo,
   country,
+  countries,
   event,
   setEvent,
   setYearsAgo,
@@ -50,14 +51,23 @@ const Form = ({
             </div>
             <div className={Styles.subFormPart}>
               <label className={Styles.label}>Where are you from?</label>
-              <input
-                className={Styles.inputClass2}
-                type='text'
-                placeholder='e.g.- Memphis, America '
-                value={country}
+              <select
                 name='country'
-                onChange={(e) => setCountry(e.target.value)}
-              />
+                className={Styles.inputClass2}
+                placeholder='Select any country'
+                onChange={(e) => {
+                  setCountry(e.target.value);
+                }}
+              >
+                {countries?.map((val) => (
+                  <option
+                    key={val.cca2}
+                    value={`${val.name.common},${val.flags.svg}`}
+                  >
+                    {val.name.common}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <input className={Styles.submit} type='submit' value='submit' />
