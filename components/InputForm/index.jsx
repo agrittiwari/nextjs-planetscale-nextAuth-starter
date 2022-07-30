@@ -32,12 +32,12 @@ const Form = ({ setCountry, yearsAgo, setEvent, setYearsAgo, onSave }) => {
                 className={Styles.inputClass2}
                 type='number'
                 min='1900'
-                max='2099'
+                max='2022'
                 step='1'
                 value={yearsAgo}
                 placeholder='like in 2021'
                 name='yearsAgo'
-                onChange={(e) => setYearsAgo(JSON.parse(e.target.value))}
+                onChange={(e) => setYearsAgo(e.target.value)}
               />
             </div>
             <div className={Styles.subFormPart}>
@@ -48,6 +48,7 @@ const Form = ({ setCountry, yearsAgo, setEvent, setYearsAgo, onSave }) => {
                 placeholder='e.g.- Memphis, America '
                 //   value={incident.country}
                 name='country'
+                onChange={(e)=>setCountry(e.target.value)}
               />
             </div>
           </div>
