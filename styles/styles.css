@@ -1,0 +1,49 @@
+body{
+   background-color: #222;
+   margin-top: 0;
+    margin-left:0 ;
+ 
+}
+/* main{
+   display: flex; 
+} */
+.list{
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+  
+   justify-content: center;
+   justify-items: center;
+}
+
+.loading {
+   display: inline-block;
+   width: 25px;
+   height: 25px;
+   border: 5px solid #9ca3af;
+   border-radius: 50%;
+   border-top-color: #d817cb;
+   animation: spin 1s ease-in-out infinite;
+   -webkit-animation: spin 1s ease-in-out infinite;
+   left: calc(50% - 15px);
+   top: calc(50% - 15px);
+   position: fixed;
+   z-index: 1;
+}
+
+@keyframes spin {
+   to {
+      -webkit-transform: rotate(360deg);
+   }
+}
+
+@-webkit-keyframes spin {
+   to {
+      -webkit-transform: rotate(360deg);
+   }
+}
+
+.app-container {
+  
+  height: 100vh;
+}
