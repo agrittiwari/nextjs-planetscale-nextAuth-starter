@@ -27,8 +27,8 @@ To know more about this project, you can read this [launch article](https://tech
 
 ## Technologies Used:
 - NextJS
-- Django, Django Rest Framework,
-- Figma
+- NextAuth,
+- Responsive Design👀
 - PlanetScale MYSQL serverless database
 
 ## Attribution
