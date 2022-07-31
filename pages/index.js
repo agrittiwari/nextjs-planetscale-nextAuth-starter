@@ -64,12 +64,11 @@ export default function Home({ products }) {
       <div className='app-container'>
         <main>
           <Nav />
-          <div >
-          
+          <div>
             {status === "loading" && <div className='loading' />}
             {status === "unauthenticated" && (
-              <div>
-                <strong>Sign up to share your funny Incident</strong>
+              <div className='message'>
+                <strong>Sign In to share your funny Incident</strong>
               </div>
             )}
             <div className='list'>

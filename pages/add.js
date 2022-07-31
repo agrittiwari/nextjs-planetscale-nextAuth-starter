@@ -68,7 +68,9 @@ const Add = () => {
           <Nav />
           <div className='min-h-[71vh]'>
             {status === "unauthenticated" && (
-              <span>Sign In to make your Entry</span>
+              <span className='message'>
+                <strong>Sign In to make your Entry</strong>
+              </span>
             )}
             {status === "loading" && <div className='loading' />}
             {status === "authenticated" && (
