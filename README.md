@@ -21,6 +21,17 @@ Proudly powered by PlanetScale database.
 ## 👀 Preview Example
 To view, click this [link](https://nextjs-planetscale-nextauth-starter.vercel.app/)
 
+# Fork this repo 
+To begin your own project, fork this repo and update the environment variables in `.env` file
+`PLANETSCALE_PRISMA_DATABASE_URL`
+ 
+`GOOGLE_CLIENT_ID`
+`GOOGLE_CLIENT_SECRET`
+
+`NEXTAUTH_URL`
+`NEXTAUTH_SECRET`
+`NEXTAUTH_URL_INTERNAL`
+
 
 ## Blog
 To know more about this project, you can read this [launch article](https://tech-blog.agrittiwari.com/nextauth-planetscale-starter)
